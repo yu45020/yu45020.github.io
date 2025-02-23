@@ -20,8 +20,8 @@
 
 title: Yu45020
 domain: yu45020.github.io
-url: https://yu45020.github.io 
-baseurl: /yu45020.github.io/ 
+url: "https://yu45020.github.io "
+baseurl: ""
 
 # Build settings
 theme: null
@@ -32,6 +32,9 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
+sass:
+  sass_dir: _sass
+  style: compressed
 
  
 # remove the view my github profile section; can be found in /_layouts/default.html
