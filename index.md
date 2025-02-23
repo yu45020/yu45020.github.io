@@ -62,11 +62,20 @@ function loadMarkdownPost(mdUrl) {
             return response.text();
         })
         .then(markdown => {
+            let { metadata, content } = parseFrontMatter(markdown);
             let converter = new showdown.Converter();
-            let htmlContent = converter.makeHtml(markdown);
+            let htmlContent = converter.makeHtml(content);
+            let formattedDate = metadata.date ? formatDate(metadata.date) : "";
 
             document.getElementById("posts-container").innerHTML = `
                 <a href="#" id="back-to-posts-top">← Back to posts</a>
+                <hr class="hr-bottom-line">
+                <h1></h1>
+
+                <h1>${metadata.title || "Untitled Post"}</h1>
+                ${formattedDate ? `<p style="text-align: right;">${formattedDate}</p>` : ""}
+                <!-- ${metadata.excerpt ? `<abstract>${metadata.excerpt}</abstract>` : ""} -->
+
                 ${htmlContent}
                 <h1></h1>
                 <hr class="hr-bottom-line">
@@ -89,6 +98,39 @@ function loadMarkdownPost(mdUrl) {
             console.error("Error loading markdown post:", error);
             document.getElementById("posts-container").innerHTML = "Failed to load post.";
         });
+
+function parseFrontMatter(markdown) {
+    let frontMatterRegex = /^---\n([\s\S]*?)\n---\n/;
+    let match = markdown.match(frontMatterRegex);
+
+    if (match) {
+        let frontMatter = match[1];
+        let content = markdown.replace(frontMatterRegex, ''); // Remove front matter
+
+        let yamlObject = {};
+        frontMatter.split("\n").forEach(line => {
+            let [key, ...value] = line.split(": ");
+            if (key && value.length) {
+                yamlObject[key.trim()] = value.join(": ").trim();
+            }
+        });
+
+        return { metadata: yamlObject, content: content };
+    }
+
+    return { metadata: {}, content: markdown };
+}
+}
+
+function formatDate(dateString) {
+    let date = new Date(dateString);
+    if (isNaN(date)) return dateString; // Return original if parsing fails
+
+    let day = String(date.getDate()).padStart(2, "0");
+    let month = String(date.getMonth() + 1).padStart(2, "0");
+    let year = date.getFullYear();
+
+    return `${day}-${month}-${year}`;
 }
 </script>
 
