@@ -23,8 +23,8 @@ document.addEventListener("DOMContentLoaded", function() {
             posts.forEach(post => {
                 let rawMdUrl = post.url.replace(
                     "https://yu45020.github.io/posts/",
-                    "https://raw.githubusercontent.com/yu45020/yu45020.github.io/refs/heads/data-storage/posts/"
-                ) + ".md";  
+                    "https://raw.githubusercontent.com/yu45020/yu45020.github.io/data-storage/posts/"
+                    ) + ".md";  
 
                 let postElement = document.createElement("div");
                 postElement.innerHTML = `

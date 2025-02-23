@@ -9,12 +9,15 @@ bundle exec jekyll serve --watch
 
 ## Changes
 
+* The index.md fetches the posts from the `posts.json` file in the `data-storage` branch without rebuilding the site.
+
 * Move the description part to the index.md header
 
 * Add a button for dark theme
 
 * update the `/assets/css/style.scss`
 
+* ``
 ## To Build
 
 * [Creating a GitHub Pages site with Jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll)
