@@ -1,7 +1,7 @@
 [
   {
-    "title": "Test Post",
-    "url": "/posts/test",
-    "excerpt": "This is the test post."
+    "filename": "test.md",
+    "title": "title", 
+    "excerpt": "excerpt"
   }
 ]

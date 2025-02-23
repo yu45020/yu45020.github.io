@@ -25,8 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
             container.innerHTML = ""; 
 
             posts.forEach(post => {
-                console.log(post.url.split('/'));
-                let rawMdUrl = `https://raw.githubusercontent.com/${githubName}/${githubName}.github.io/refs/heads/${postBranch}/${postFolder}/${post.url.split('/').pop()}.md`;
+                let rawMdUrl = `https://raw.githubusercontent.com/${githubName}/${githubName}.github.io/refs/heads/${postBranch}/${postFolder}/${post.filename}`;
                 let postElement = document.createElement("div");
                 postElement.innerHTML = `
                     <h2><a href="#" class="post-link" data-url="${rawMdUrl}">${post.title}</a></h2>
