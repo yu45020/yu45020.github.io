@@ -12,6 +12,21 @@ Jekyll requires blog post files to be named according to the following format:
 
 Where `YEAR` is a four-digit number, `MONTH` and `DAY` are both two-digit numbers, and `MARKUP` is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.
 
+Template
+
+```md
+---
+layout: post
+title: "My First Blog Post"
+date: 2025-02-23 12:00:00 +0000
+categories: [jekyll, tutorial]
+tags: [jekyll, markdown, blogging]
+author: "John Doe"
+---
+
+
+```
+
 Jekyll also offers powerful support for code snippets:
 
 {% highlight ruby %}
