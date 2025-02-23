@@ -63,12 +63,20 @@ function loadMarkdownPost(mdUrl) {
             let htmlContent = converter.makeHtml(markdown);
 
             document.getElementById("posts-container").innerHTML = `
-                <a href="#" id="back-to-posts">← Back to posts</a>
+                <a href="#" id="back-to-posts-top">← Back to posts</a>
+
                 ${htmlContent}
-                <a href="#" id="back-to-posts">← Back to posts</a>
+
+                <a href="#" id="back-to-posts-bottom">← Back to posts</a>
             `;
 
-            document.getElementById("back-to-posts").addEventListener("click", function (event) {
+            document.getElementById("back-to-posts-top").addEventListener("click", function (event) {
+                event.preventDefault();
+                document.location.hash = "";  
+                location.reload();
+            });
+
+            document.getElementById("back-to-posts-bottom").addEventListener("click", function (event) {
                 event.preventDefault();
                 document.location.hash = "";  
                 location.reload();
