@@ -64,7 +64,6 @@ function loadMarkdownPost(mdUrl) {
 
             document.getElementById("posts-container").innerHTML = `
                 <a href="#" id="back-to-posts-top">← Back to posts</a>
-                <hr style="border: 1px #ccc;">  
                 ${htmlContent}
                 <hr style="border: 1px #ccc ;"> 
                 <a href="#" id="back-to-posts-bottom">← Back to posts</a>
