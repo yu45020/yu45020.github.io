@@ -3,5 +3,10 @@
     "title": "Test Post",
     "url": "/posts/test",
     "excerpt": "This is the test post."
-  }
+  },
+    {
+        "title": "Another Test Post Without Triggering Rebuild",
+        "url": "/posts/second",
+        "excerpt": "This is another test post."
+    }
 ]
