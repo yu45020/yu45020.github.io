@@ -21,11 +21,8 @@ document.addEventListener("DOMContentLoaded", function() {
             container.innerHTML = ""; 
 
             posts.forEach(post => {
-                let rawMdUrl = post.url.replace(
-                    "https://yu45020.github.io/posts/",
-                    "https://raw.githubusercontent.com/yu45020/yu45020.github.io/data-storage/posts/"
-                    ) + ".md";  
-
+                console.log(post.url.split('/'));
+                let rawMdUrl = `https://raw.githubusercontent.com/yu45020/yu45020.github.io/refs/heads/data-storage/posts/${post.url.split('/').pop()}.md`;
                 let postElement = document.createElement("div");
                 postElement.innerHTML = `
                     <h2><a href="#" class="post-link" data-url="${rawMdUrl}">${post.title}</a></h2>
@@ -63,6 +60,7 @@ function loadMarkdownPost(mdUrl) {
             document.getElementById("posts-container").innerHTML = `
                 <a href="#" onclick="location.reload(); return false;">← Back to posts</a>
                 ${htmlContent}
+                <a href="#" onclick="location.reload(); return false;">← Back to posts</a>
             `;
         })
         .catch(error => {
