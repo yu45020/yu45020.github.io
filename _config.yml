@@ -46,4 +46,5 @@ include:
   - _includes
   - _sass
   - assets
+  - assets/js
   - _config.yml
