@@ -1,0 +1,183 @@
+---
+---
+
+@import "jekyll-theme-minimal";
+
+/* Global font settings */
+body {
+    font-size: 18px; /* Default text size */
+    line-height: 1.6; /* Improve readability */
+}
+
+/* title */  
+
+.site-title {
+    font-size: 28px;  
+    // font-weight: bold;
+    // text-align: center;
+}
+/* Headings */
+h1 {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+h4, h5, h6 {
+    font-size: 20px;
+}
+
+/* Paragraphs and Lists */
+p, li {
+    font-size: 18px;
+}
+
+/* Navigation Links */
+.site-nav a {
+    font-size: 16px;
+}
+
+/* Code Blocks */
+pre, code {
+    font-size: 14px;
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+    .site-title {
+        font-size: 24px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 26px;
+    }
+
+    h3 {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 16px;
+    }
+    .site-title {
+        font-size: 20px;
+    }
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+}
+
+// 
+.site-logo {
+    max-width: 240px;
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Prevent inline spacing issues */
+    // margin: 0 auto; /* Center it horizontally */
+}
+
+@media (max-width: 768px) {
+    .site-logo {
+        max-width: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-logo {
+        max-width: 140px;
+    }
+}
+/* Dark Mode Styles */
+#dark-mode-toggle {
+    position: fixed;
+    top: 10px;
+    right: 15px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    #dark-mode-toggle {
+        top: 5px;
+        right: 5px;
+        font-size: 10px;
+        padding: 6px 10px;
+    } 
+}
+
+#dark-mode-toggle:hover {
+    background-color: #555;
+}
+
+.dark-mode #dark-mode-toggle {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.dark-mode #dark-mode-toggle:hover {
+    background-color: #ddd;
+}
+
+
+body.dark-mode {
+    background-color: #121212 !important;
+    color: #e0e0e0 !important;
+}
+
+// header and footer 
+.dark-mode .site-header, 
+.dark-mode .site-footer, 
+.dark-mode .site-nav {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+}
+
+// links
+.dark-mode a {
+    color: #bb86fc !important;
+}
+
+.dark-mode a:hover {
+    color: #3700b3 !important;
+}
+
+.dark-mode p,
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode h5,
+.dark-mode h6 {
+    color: #e0e0e0;
+}
