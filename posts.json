@@ -1,11 +1,22 @@
 [
   {
-    "filename": "2025-02-23-first-test.md"
+    "filename": "2025-02-22-welcome-to-jekyll.md",
+    "title": "\"Welcome to Jekyll!\"",
+    "excerpt": "blog post test sample"
   },
   {
-    "filename": "2025-02-23-second.md"
+    "filename": "2025-02-23-first-test.md",
+    "title": "\"Welcome to Jekyll!\"",
+    "excerpt": "first test"
   },
   {
-    "filename": "2025-02-23-third-test.md"
+    "filename": "2025-02-23-second.md",
+    "title": "Second Test",
+    "excerpt": "blog post test sample"
+  },
+  {
+    "filename": "2025-02-23-third-test.md",
+    "title": "3rd test",
+    "excerpt": "blog post test sample"
   }
 ]

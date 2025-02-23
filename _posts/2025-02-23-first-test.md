@@ -3,6 +3,7 @@ layout: post
 title:  "Welcome to Jekyll!"
 date:   2025-02-22 20:56:57 -0500
 categories: jekyll update
+excerpt: first test
 ---
 
 
