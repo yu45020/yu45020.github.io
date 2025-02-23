@@ -30,11 +30,16 @@ document.addEventListener("DOMContentLoaded", function() {
                 `;
                 container.appendChild(postElement);
             });
+
+           if (localStorage.getItem("scrollPosition")) {
+                window.scrollTo(0, localStorage.getItem("scrollPosition"));
+            }
  
             document.querySelectorAll(".post-link").forEach(link => {
                 link.addEventListener("click", function(event) {
                     event.preventDefault();
                     let mdUrl = this.getAttribute("data-url");
+                    localStorage.setItem("scrollPosition", window.scrollY);
                     loadMarkdownPost(mdUrl);
                 });
             });
@@ -62,6 +67,11 @@ function loadMarkdownPost(mdUrl) {
                 ${htmlContent}
                 <a href="#" onclick="location.reload(); return false;">← Back to posts</a>
             `;
+
+            document.getElementById("back-to-posts").addEventListener("click", function (event) {
+                event.preventDefault();
+                location.reload();
+            });
         })
         .catch(error => {
             console.error("Error loading markdown post:", error);
