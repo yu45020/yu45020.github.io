@@ -21,8 +21,8 @@ document.addEventListener("DOMContentLoaded", function() {
             container.innerHTML = ""; 
             posts.forEach(post => {
                 let correctedUrl = post.url.replace(
-                    "https://raw.githubusercontent.com/yu45020/yu45020.github.io/data-storage/posts/",
-                    "https://yu45020.github.io/posts/"
+                    "https://yu45020.github.io/posts/",
+                    "https://raw.githubusercontent.com/yu45020/yu45020.github.io/data-storage/posts/"
                 );
 
                 let postElement = document.createElement("div");
