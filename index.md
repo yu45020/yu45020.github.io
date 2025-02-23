@@ -1,8 +1,7 @@
 ---
 layout: default
 title: Yu45020
-description:   
-    😵‍💫🤐🥶💊☠️👻
+description:  😵‍💫🤐🥶💊☠️👻
 ---
 
  
@@ -13,8 +12,13 @@ description:
 <div id="posts-container">Loading posts...</div>
 
 <script>
+const githubName = "{{ site.githubname }}";
+const postBranch = "{{ site.postbranch }}";
+const postFolder = "{{ site.postfolder }}";
+const postJson = "{{ site.postjson }}";
+
 document.addEventListener("DOMContentLoaded", function() {
-    fetch('https://raw.githubusercontent.com/yu45020/yu45020.github.io/data-storage/posts.json')
+    fetch(`https://raw.githubusercontent.com/${githubName}/${githubName}.github.io/${postBranch}/${postJson}`)
         .then(response => response.json())
         .then(posts => {
             let container = document.getElementById("posts-container");
@@ -22,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             posts.forEach(post => {
                 console.log(post.url.split('/'));
-                let rawMdUrl = `https://raw.githubusercontent.com/yu45020/yu45020.github.io/refs/heads/data-storage/posts/${post.url.split('/').pop()}.md`;
+                let rawMdUrl = `https://raw.githubusercontent.com/${githubName}/${githubName}.github.io/refs/heads/${postBranch}/${postFolder}/${post.url.split('/').pop()}.md`;
                 let postElement = document.createElement("div");
                 postElement.innerHTML = `
                     <h2><a href="#" class="post-link" data-url="${rawMdUrl}">${post.title}</a></h2>
@@ -65,7 +69,8 @@ function loadMarkdownPost(mdUrl) {
             document.getElementById("posts-container").innerHTML = `
                 <a href="#" id="back-to-posts-top">← Back to posts</a>
                 ${htmlContent}
-                <hr style="border: 1px #ccc ;"> 
+                <h1></h1>
+                <hr class="hr-bottom-line">
                 <a href="#" id="back-to-posts-bottom">← Back to posts</a>
             `;
 

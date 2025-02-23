@@ -7,7 +7,7 @@ body {
 
 /* title */
 
-.site-title {
+.site-name {
   font-size: 28px;
   // font-weight: bold;
   // text-align: center;
@@ -28,12 +28,15 @@ h3 {
   font-size: 24px;
 }
 
-h4, h5, h6 {
+h4,
+h5,
+h6 {
   font-size: 20px;
 }
 
 /* Paragraphs and Lists */
-p, li {
+p,
+li {
   font-size: 18px;
 }
 
@@ -43,17 +46,17 @@ p, li {
 }
 
 /* Code Blocks */
-pre, code {
+pre,
+code {
   font-size: 14px;
 }
-
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   body {
     font-size: 16px;
   }
-  .site-title {
+  .site-name {
     font-size: 24px;
   }
 
@@ -74,7 +77,7 @@ pre, code {
   body {
     font-size: 16px;
   }
-  .site-title {
+  .site-name {
     font-size: 20px;
   }
   h1 {
@@ -91,11 +94,14 @@ pre, code {
 }
 
 //
+/* Logo */
+
 .site-logo {
   max-width: 240px;
   height: auto; /* Maintain aspect ratio */
   display: block; /* Prevent inline spacing issues */
-  // margin: 0 auto; /* Center it horizontally */
+  background-size: cover;
+  border-radius: 50%
 }
 
 @media (max-width: 768px) {
@@ -147,7 +153,6 @@ pre, code {
   background-color: #ddd;
 }
 
-
 body.dark-mode {
   background-color: #121212 !important;
   color: #e0e0e0 !important;
@@ -178,4 +183,23 @@ body.dark-mode {
 .dark-mode h5,
 .dark-mode h6 {
   color: #e0e0e0;
+}
+
+
+/*Bottom line to seperate back to posts*/
+.hr-bottom-line {
+  border: 1px  #ccc;
+  margin-bottom: 1px;
+}
+
+#back-to-posts-bottom {
+  display: block;
+  margin-top: 1px; /* Adjust spacing below the <hr> */
+}
+
+ 
+@media (prefers-color-scheme: dark) {
+  .hr-bottom-line {
+      border-color: #444; /* Dark Mode */
+  }
 }

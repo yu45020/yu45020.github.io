@@ -18,15 +18,18 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Yu45020
+owner_name: "Yu45020"  # shown under the logo 
 domain: yu45020.github.io
 url: https://yu45020.github.io
-
+githubname: yu45020 # used to ref posts 
+postbranch: data-storage # store posts in a different branch to avoid rebuilding 
+postfolder: posts
+postjson: posts.json
 
 # Build settings
 theme: null
-# favicon: "/favicon.ico"
-logo: /assets/img/logo.png
+favicon: ""
+logo: "https://github.com/yu45020.png"
 
 plugins:
   - jekyll-feed
