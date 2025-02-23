@@ -1,13 +1,24 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Attach function to the window object to make it globally accessible
-    window.toggleDarkMode = function () {
-        document.body.classList.toggle("dark-mode");
+    const button = document.getElementById("dark-mode-toggle");
+    if (!button) {
+        console.error("Dark mode button not found!");
+        return;
+    }
 
-        const button = document.getElementById("dark-mode-toggle");
-        if (!button) {
-            console.error("Dark mode button not found!");
-            return;
-        }
+    // Ensure the dark mode setting is applied on page load
+    const userPreference = localStorage.getItem("dark-mode");
+
+    if (userPreference === "enabled") {
+        document.body.classList.add("dark-mode");
+        button.innerHTML = "☀️ Light Mode";
+    } else {
+        document.body.classList.remove("dark-mode");
+        button.innerHTML = "🌙 Dark Mode";
+    }
+
+    // Attach event listener using an anonymous function
+    button.addEventListener("click", function () {
+        document.body.classList.toggle("dark-mode");
 
         if (document.body.classList.contains("dark-mode")) {
             localStorage.setItem("dark-mode", "enabled");
@@ -16,23 +27,5 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.setItem("dark-mode", "disabled");
             button.innerHTML = "🌙 Dark Mode";
         }
-    };
-
-    // Ensure the dark mode setting is applied on page load
-    const button = document.getElementById("dark-mode-toggle");
-    if (!button) {
-        console.error("Dark mode button not found!");
-        return;
-    }
-
-    const userPreference = localStorage.getItem("dark-mode");
-    if (userPreference === "enabled" || userPreference === null) {
-        document.body.classList.add("dark-mode");
-        button.innerHTML = "☀️ Light Mode";
-    } else {
-        button.innerHTML = "🌙 Dark Mode";
-    }
-
-    // Attach event listener to the button
-    button.addEventListener("click", toggleDarkMode);
+    });
 });

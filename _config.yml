@@ -36,10 +36,11 @@ sass:
   sass_dir: _sass
   style: compressed
 
- 
+
 # remove the view my github profile section; can be found in /_layouts/default.html
-github: 
-  - is_user_page : false 
+github:
+  repository_url: https://github.com/yu45020/
+
 show_downloads: false
 markdown: kramdown
 permalink: pretty

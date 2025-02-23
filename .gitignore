@@ -6,3 +6,4 @@ vendor
 Gemfile.lock
 .history/*
 _site/*
+*.idea/*

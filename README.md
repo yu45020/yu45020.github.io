@@ -4,7 +4,7 @@ The website uses github [minimal](https://github.com/pages-themes/minimal) theme
 ## To Test Locally
 
 ```
-bundle exec jekyll serve --safe --config _config.yml
+bundle exec jekyll serve --watch
 ```
 
 ## Changes
