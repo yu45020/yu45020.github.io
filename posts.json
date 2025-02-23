@@ -1,17 +1,11 @@
 [
   {
-    "title": "Test Post",
-    "url": "/posts/test",
-    "excerpt": "This is the test post."
+    "filename": "2025-02-23-first-test.md"
   },
   {
-    "title": "Another Test Post Without Triggering Rebuild",
-    "url": "/posts/second",
-    "excerpt": "This is another test post."
+    "filename": "2025-02-23-second.md"
   },
   {
-    "title": "3rd Test Post Without Triggering Rebuild",
-    "url": "/posts/third",
-    "excerpt": "This is yet another test post."
+    "filename": "2025-02-23-third-test.md"
   }
 ]
