@@ -18,12 +18,16 @@ document.addEventListener("DOMContentLoaded", function() {
         .then(response => response.json())
         .then(posts => {
             let container = document.getElementById("posts-container");
-            container.innerHTML = ""; // Clear the loading message
-
+            container.innerHTML = ""; 
             posts.forEach(post => {
+                let correctedUrl = post.url.replace(
+                    "https://raw.githubusercontent.com/yu45020/yu45020.github.io/data-storage/posts/",
+                    "https://yu45020.github.io/posts/"
+                );
+
                 let postElement = document.createElement("div");
                 postElement.innerHTML = `
-                    <h2><a href="${post.url}">${post.title}</a></h2>
+                    <h2><a href="${correctedUrl}">${post.title}</a></h2>
                     <p>${post.excerpt}</p>
                 `;
                 container.appendChild(postElement);
