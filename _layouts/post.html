@@ -2,13 +2,26 @@
 layout: default
 ---
 
-<small>{{ page.date | date: "%-d %B %Y" }}</small>
-<h1>{{ page.title }}</h1>
+<div class="nav-tabs">
+  {% for tab in site.navigation %}
+  <a class="tab" href="{{ tab.url | relative_url }}">{{ tab.name }}</a>
+  {% endfor %}
+</div>
 
-<p class="view">by {{ page.author | default: site.author }}</p>
+<div class="separator"></div>
 
-{{content}}
+<div class="post-container">
+  <small>{{ page.date | date: "%-d %B %Y" }}</small>
+  <h1>{{ page.title }}</h1>
 
-{% if page.tags %}
-  <small>tags: <em>{{ page.tags | join: "</em> - <em>" }}</em></small>
-{% endif %}
+  <!-- <p class="view">by {{ page.author | default: site.author }}</p> -->
+
+<!--  {% if page.tags %}-->
+<!--  <div class="tag-container">-->
+<!--    <medium>tags: <em>{{ page.tags | join: "</em> - <em>" }}</em></medium>-->
+<!--  </div>-->
+<!--  {% endif %}-->
+
+  <h3></h3>
+  <div class="content">{{ content }}</div>
+</div>

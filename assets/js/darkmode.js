@@ -10,10 +10,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (userPreference === "enabled") {
         document.body.classList.add("dark-mode");
-        button.innerHTML = "☀️ Light Mode";
+        button.innerHTML = "☀️ Light";
     } else {
         document.body.classList.remove("dark-mode");
-        button.innerHTML = "🌙 Dark Mode";
+        button.innerHTML = "🌙 Dark";
     }
 
     // Attach event listener using an anonymous function
@@ -22,10 +22,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (document.body.classList.contains("dark-mode")) {
             localStorage.setItem("dark-mode", "enabled");
-            button.innerHTML = "☀️ Light Mode";
+            button.innerHTML = "☀️ Light";
         } else {
             localStorage.setItem("dark-mode", "disabled");
-            button.innerHTML = "🌙 Dark Mode";
+            button.innerHTML = "🌙 Dark";
         }
     });
 });

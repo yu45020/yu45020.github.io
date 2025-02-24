@@ -1,10 +1,10 @@
 # yu45020.github.io
-The website uses github [minimal](https://github.com/pages-themes/minimal) theme
+The website uses github [minimal](https://github.com/pages-themes/minimal) theme and [minimal-light](https://github.com/yaoyao-liu/minimal-light) 's style. 
 
 ## To Test Locally
 
 ```
-bundle exec jekyll serve --incremental
+bundle exec jekyll serve 
 
 ```
 

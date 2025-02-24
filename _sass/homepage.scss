@@ -1,0 +1,108 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+/* The top left column */
+
+
+.wrapper {
+  width: 900px;
+  margin:0 auto;
+  overflow-wrap: break-word; /* Allows long words to break */
+  word-wrap: break-word; /* Ensures wrapping */
+  align-items: stretch;
+
+}
+
+section {
+  width: 720px;
+  float: right;
+  margin:0 auto;
+  padding-bottom: 50px;
+  overflow-wrap: break-word; /* Allows long words to break */
+  word-wrap: break-word; /* Ensures wrapping */
+  align-items: stretch;
+
+}
+
+header {
+  width: 180px;
+  float: left;
+  position: fixed;
+  -webkit-font-smoothing: subpixel-antialiased;
+  text-align:center;
+}
+
+.right-column {
+  width: 100%;
+  padding: 0px;
+}
+
+/* Logo */
+
+.site-logo {
+  max-width: 130px;
+  height: auto; /* Maintain aspect ratio */
+  //display: block; /* Prevent inline spacing issues */
+  background-size: cover;
+  border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .site-logo {
+    max-width: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-logo {
+    max-width: 140px;
+  }
+}
+
+@media print, screen and (max-width: 970px) {
+  .container {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center align for a clean look */
+  }
+
+  div.wrapper {
+    width:auto;
+    margin:0;
+  }
+
+  header, section, footer {
+    float:none;
+    position:static;
+    width:auto;
+  }
+
+}
+
+.nav-tabs {
+  display: flex;
+  justify-content: flex-end;
+  border-bottom: 2px solid #267cb9;
+  padding-bottom: 5px;
+  margin-bottom: 30px;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.tab {
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+.tab-content {
+  flex: 1; /* Allows the tab content to expand dynamically */
+  width: 100%;
+  max-width: 100%; /* Ensures it doesn’t exceed the container width */
+}

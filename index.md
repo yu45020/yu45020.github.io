@@ -1,139 +1,66 @@
 ---
 layout: default
 title: Yu45020
-description:  😵‍💫🤐🥶💊☠️👻
+description: 😵‍💫🤐🥶💊☠️👻
+github: "https://github.com/Yu45020"
 ---
-
  
-# Hello World
 
+<div class="container">
+    <div class="right-column">
+        <div class="nav-tabs">
+            <a class="tab" href="#home" onclick="showTab('home')">Home</a>
+            <a class="tab" href="#projects" onclick="showTab('projects')">Projects</a>
+        </div>
 
-[//]: # (Automatically fetch and display posts from a GitHub repository.)
-<div id="posts-container">Loading posts...</div>
+        <div class="separator"></div>
+
+        <div id="home" class="tab-content">
+            <h2>Welcome to My GitHub Page</h2>
+            <p>This is the home section of my GitHub Page.</p>
+        </div>
+
+        <div id="projects" class="tab-content hidden">
+            <ul>
+                {% for post in site.posts %}
+                    <li>
+                        <a href="{{ post.url }}">{{ post.title }}</a> - {{ post.date | date: "%Y-%m-%d" }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
 
 <script>
-const githubName = "{{ site.githubname }}";
-const postBranch = "{{ site.postbranch }}";
-const postFolder = "{{ site.postfolder }}";
-const postJson = "{{ site.postjson }}";
+document.addEventListener("DOMContentLoaded", function () {
+    function showTab(tabId) {
+        // Hide all tab content
+        document.querySelectorAll('.tab-content').forEach(tab => tab.classList.add('hidden'));
 
-document.addEventListener("DOMContentLoaded", function() {
-    fetch(`https://raw.githubusercontent.com/${githubName}/${githubName}.github.io/${postBranch}/${postJson}`)
-        .then(response => response.json())
-        .then(posts => {
-            let container = document.getElementById("posts-container");
-            container.innerHTML = ""; 
+        // Show the selected tab if it exists
+        const activeTab = document.getElementById(tabId);
+        if (activeTab) {
+            activeTab.classList.remove('hidden');
+        }
 
-            posts.forEach(post => {
-                let rawMdUrl = `https://raw.githubusercontent.com/${githubName}/${githubName}.github.io/refs/heads/${postBranch}/${postFolder}/${post.filename}`;
-                let postElement = document.createElement("div");
-                postElement.innerHTML = `
-                    <h2><a href="#" class="post-link" data-url="${rawMdUrl}">${post.title}</a></h2>
-                    <p>${post.excerpt}</p>
-                `;
-                container.appendChild(postElement);
-            });
-
-           if (localStorage.getItem("scrollPosition")) {
-                window.scrollTo(0, localStorage.getItem("scrollPosition"));
-            }
- 
-            document.querySelectorAll(".post-link").forEach(link => {
-                link.addEventListener("click", function(event) {
-                    event.preventDefault();
-                    let mdUrl = this.getAttribute("data-url");
-                    localStorage.setItem("scrollPosition", window.scrollY);
-                    loadMarkdownPost(mdUrl);
-                });
-            });
-        })
-        .catch(error => {
-            console.error("Error loading posts:", error);
-            document.getElementById("posts-container").innerHTML = "Failed to load posts.";
-        });
-});
- 
-function loadMarkdownPost(mdUrl) {
-    fetch(mdUrl)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.text();
-        })
-        .then(markdown => {
-            let { metadata, content } = parseFrontMatter(markdown);
-            let converter = new showdown.Converter();
-            let htmlContent = converter.makeHtml(content);
-            let formattedDate = metadata.date ? formatDate(metadata.date) : "";
-
-            document.getElementById("posts-container").innerHTML = `
-                <a href="#" id="back-to-posts-top">← Back to posts</a>
-                <hr class="hr-bottom-line">
-                <h1></h1>
-
-                <h1>${metadata.title || "Untitled Post"}</h1>
-                ${formattedDate ? `<p style="text-align: right;">${formattedDate}</p>` : ""}
-                <!-- ${metadata.excerpt ? `<abstract>${metadata.excerpt}</abstract>` : ""} -->
-
-                ${htmlContent}
-                <h1></h1>
-                <hr class="hr-bottom-line">
-                <a href="#" id="back-to-posts-bottom">← Back to posts</a>
-            `;
-
-            document.getElementById("back-to-posts-top").addEventListener("click", function (event) {
-                event.preventDefault();
-                document.location.hash = "";  
-                location.reload();
-            });
-
-            document.getElementById("back-to-posts-bottom").addEventListener("click", function (event) {
-                event.preventDefault();
-                document.location.hash = "";  
-                location.reload();
-            });
-        })
-        .catch(error => {
-            console.error("Error loading markdown post:", error);
-            document.getElementById("posts-container").innerHTML = "Failed to load post.";
-        });
-
-function parseFrontMatter(markdown) {
-    let frontMatterRegex = /^---\n([\s\S]*?)\n---\n/;
-    let match = markdown.match(frontMatterRegex);
-
-    if (match) {
-        let frontMatter = match[1];
-        let content = markdown.replace(frontMatterRegex, ''); // Remove front matter
-
-        let yamlObject = {};
-        frontMatter.split("\n").forEach(line => {
-            let [key, ...value] = line.split(": ");
-            if (key && value.length) {
-                yamlObject[key.trim()] = value.join(": ").trim();
-            }
-        });
-
-        return { metadata: yamlObject, content: content };
+        // Update URL fragment dynamically
+        history.pushState(null, null, `#${tabId}`);
     }
 
-    return { metadata: {}, content: markdown };
-}
-}
+    // Check URL fragment on page load and show the correct tab
+    if (window.location.hash) {
+        const tabId = window.location.hash.substring(1); // Remove #
+        showTab(tabId);
+    }
 
-function formatDate(dateString) {
-    let date = new Date(dateString);
-    if (isNaN(date)) return dateString; // Return original if parsing fails
-
-    let day = String(date.getDate()).padStart(2, "0");
-    let month = String(date.getMonth() + 1).padStart(2, "0");
-    let year = date.getFullYear();
-
-    return `${day}-${month}-${year}`;
-}
+    // Attach event listeners to tabs to update fragments
+    document.querySelectorAll('.tab').forEach(tab => {
+        tab.addEventListener('click', function (event) {
+            const target = this.getAttribute('href').substring(1); // Get fragment ID
+            event.preventDefault(); // Prevent default link behavior
+            showTab(target);
+        });
+    });
+});
 </script>
-
-<!-- markdown conversion -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
-

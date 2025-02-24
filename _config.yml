@@ -22,9 +22,14 @@ owner_name: "Yu45020"  # shown under the logo
 domain: yu45020.github.io
 url: https://yu45020.github.io
 githubname: yu45020 # used to ref posts 
-postbranch: data-storage # store posts in a different branch to avoid rebuilding 
-postfolder: _posts
-postjson: posts.json
+
+navigation:
+  - name: Home
+    url: /
+  - name: Projects
+    url: /#projects
+
+
 
 # Build settings
 theme: null
