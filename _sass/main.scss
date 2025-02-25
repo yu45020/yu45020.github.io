@@ -2,3 +2,5 @@
 @forward 'components';
 @forward 'layout';
 @forward 'pages';
+/*overwrite default styles*/
+@use 'base/_basefont';
