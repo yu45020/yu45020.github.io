@@ -7,7 +7,8 @@
         {%- capture avatar_url -%}
           {% include media-url.html src=site.avatar %}
         {%- endcapture -%}
-        <img src="{{- avatar_url -}}" width="112" height="112" alt="avatar" onerror="this.style.display='none'">
+        <!-- match the github size -->
+        <img src="{{- avatar_url -}}" width="260" height="260" alt="avatar" onerror="this.style.display='none'">
       {%- endif -%}
     </a>
 
@@ -42,10 +43,11 @@
 
   <div class="sidebar-bottom d-flex flex-wrap  align-items-center w-100">
     {% unless site.theme_mode %}
-      <button type="button" class="btn btn-link nav-link" aria-label="Switch Mode" id="mode-toggle">
-        <i class="fas fa-adjust"></i>
-      </button>
-
+<!--      <button type="button" class="btn btn-link nav-link" aria-label="Switch Mode" id="mode-toggle">-->
+<!--        <i class="fas fa-adjust"></i>-->
+<!--      </button>-->
+    <button type="button" class="btn btn-link nav-link" aria-label="Switch Mode" id="theme-toggle" >
+    </button>
       {% if site.data.contact.size > 0 %}
         <span class="icon-border"></span>
       {% endif %}
@@ -95,3 +97,40 @@
   <!-- .sidebar-bottom -->
 </aside>
 <!-- #sidebar -->
+
+<!-- switch button for dark/light mode -->
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const bar = document.getElementById('sidebar');
+    const themeToggle = bar.querySelector('#theme-toggle');
+
+    const userPreference = localStorage.getItem('theme_mode');
+    if (userPreference) {
+      // set the theme to the user preference
+      if (userPreference !== Theme.visualState) {
+        Theme.flip();
+      }
+      // else use the dark them
+      else{
+        if (Theme.visualState !== Theme.DARK) {
+          Theme.flip();
+        }
+      }
+
+    }
+    const isDarkMode = Theme.visualState === Theme.DARK;
+
+    themeToggle.firstChild.textContent = isDarkMode ? '☀️' : '🌙';
+
+
+    themeToggle.addEventListener('click', () => {
+      Theme.flip();
+      localStorage.setItem('theme_mode', Theme.visualState);
+      const currentMode = Theme.visualState === Theme.DARK;
+      themeToggle.firstChild.textContent = currentMode ? '☀️' : '🌙';
+
+    });
+  });
+</script>

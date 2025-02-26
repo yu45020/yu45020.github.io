@@ -4,3 +4,4 @@
 @forward 'pages';
 /*overwrite default styles*/
 @use 'base/_basefont';
+@use 'layout/_theme.switch.btn'
