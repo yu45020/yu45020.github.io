@@ -76,7 +76,9 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
   }
 
   .profile-wrapper {
-    @include mx.mt-mb(2.5rem);
+    //@include mx.mt-mb(2.5rem);
+    margin-top: 2.5rem;
+    margin-bottom: 0.5rem;
     @extend %clickable-transition;
 
     padding-left: 2.5rem;
@@ -92,6 +94,7 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
       margin-bottom: 2.5rem;
       padding-left: 3.5rem;
     }
+
   }
 
   .site-title {
@@ -178,7 +181,7 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
     padding-left: 2rem;
     padding-right: 1rem;
     margin-bottom: 1.5rem;
-
+    //margin-top: 2rem;
     @include bp.xxxl {
       padding-left: 2.75rem;
       margin-bottom: 1.75rem;
