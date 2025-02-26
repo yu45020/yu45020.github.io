@@ -236,7 +236,7 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
 
     .icon-border {
       @extend %no-cursor;
-      @include mx.ml-mr(calc(#{v.$sb-btn-gap - $btn-border-width} / 2));
+      @include mx.ml-mr(calc((v.$sb-btn-gap - $btn-border-width) / 2));
 
       background-color: var(--sidebar-btn-color);
       content: '';
@@ -248,7 +248,7 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
       margin-left: .5rem;
       margin-right:.5rem;
       @include bp.xxxl {
-        @include mx.ml-mr(calc(#{v.$sb-btn-gap-lg - $btn-border-width} / 2));
+        @include mx.ml-mr(calc((v.$sb-btn-gap-lg - $btn-border-width) / 2));
       }
     }
   } /* .sidebar-bottom */
