@@ -245,6 +245,8 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
       border-radius: 50%;
       margin-bottom: $btn-mb;
 
+      margin-left: .5rem;
+      margin-right:.5rem;
       @include bp.xxxl {
         @include mx.ml-mr(calc((v.$sb-btn-gap-lg - $btn-border-width) / 2));
       }
