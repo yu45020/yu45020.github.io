@@ -35,7 +35,7 @@ social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
   name: Yu45020
-#  email:  # change to your email address
+  #  email:  # change to your email address
   links:
     # The first element serves as the copyright owner's link
     - https://twitter.com/username # change to your Twitter homepage
@@ -98,8 +98,8 @@ theme_mode: # [light | dark]
 cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar: "https://github.com/yu45020.png"
-
+#avatar: "https://github.com/yu45020.png"
+avatar: /assets/img/avatar.png
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
 social_preview_image: # string, local or CORS resources
@@ -145,7 +145,7 @@ pwa:
     # Usually its value is the `baseurl` of another website that
     # shares the same domain name as the current website.
     deny_paths:
-      # - "/example"  # URLs match `<SITE_URL>/example/*` will not be cached by the PWA
+    # - "/example"  # URLs match `<SITE_URL>/example/*` will not be cached by the PWA
 
 paginate: 10
 
@@ -172,8 +172,8 @@ collections:
     sort_by: order
 
 defaults:
-  - scope:
-      path: "" # An empty string here means all files in the project
+  - scope: # specify default values for files in the post folder
+      path: '' # An empty string here means all files in the project
       type: posts
     values:
       layout: post
@@ -192,6 +192,10 @@ defaults:
     values:
       layout: page
       permalink: /:title/
+#  - scope:
+#      path: commons
+#    values:
+#      permalink: /cAommons/:path
 
 sass:
   style: compressed
@@ -217,7 +221,7 @@ exclude:
   - "package*.json"
 
 jekyll-archives:
-  enabled: [categories, tags]
+  enabled: [ categories, tags ]
   layouts:
     category: category
     tag: tag
