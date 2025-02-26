@@ -12,11 +12,21 @@ layout: page
   {% assign sorted_tags = tags | sort_natural %}
 
   {% for t in sorted_tags %}
-    <div>
-      <a class="tag" href="{{ t | slugify | url_encode | prepend: '/tags/' | append: '/' | relative_url }}">
-        {{ t -}}
-        <span class="text-muted">{{ site.tags[t].size }}</span>
-      </a>
-    </div>
+    {% assign filtered_posts = '' | split: '' %}
+      {% for post in site.tags[t] %}
+        {% if post.hidden != true %}
+          {% assign filtered_posts = filtered_posts | push: post %}
+         {% endif %}
   {% endfor %}
+
+  {% if filtered_posts.size > 0 %}
+  <div>
+    <a class="tag" href="{{ t | slugify | url_encode | prepend: '/tags/' | append: '/' | relative_url }}">
+      {{ t -}}
+      <span class="text-muted">{{ filtered_posts.size }}</span>
+    </a>
+  </div>
+  {% endif %}
+  {% endfor %}
+
 </div>
