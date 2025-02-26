@@ -112,16 +112,9 @@
       if (userPreference !== Theme.visualState) {
         Theme.flip();
       }
-      // else use the dark them
-      else{
-        if (Theme.visualState !== Theme.DARK) {
-          Theme.flip();
-        }
-      }
-
     }
-    const isDarkMode = Theme.visualState === Theme.DARK;
 
+    const isDarkMode = Theme.visualState === Theme.DARK;
     themeToggle.firstChild.textContent = isDarkMode ? '☀️' : '🌙';
 
 
