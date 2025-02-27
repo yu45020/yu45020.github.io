@@ -1,0 +1,7 @@
+/*
+reset the default 16px for readability in large screens
+*/
+
+:root {
+  font-size: 20px; // overwrite 16px is same as 12 pt in latex doc
+}

@@ -1,0 +1,40 @@
+@use './_sidebar';
+
+$btn-mb: 0.5rem;
+$btn-size: 1.75rem;
+
+#theme-toggle {
+
+  @extend %sidebar-links;
+  @extend %sidebar-link-hover;
+  width: $btn-size;
+  height: $btn-size;
+  margin-bottom: $btn-mb; // multi line gap
+  border-radius: 50%;
+  color: var(--sidebar-btn-color);
+  background-color: var(--sidebar-btn-bg);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  
+  &::before {
+    content: var(--theme-toggle-icon);
+    font-size: 1.2rem;
+    // position: absolute;
+  }
+  
+  //border: 1px solid var(--theme-toggle-boarder-bg);
+  &:not(:focus-visible) {
+    box-shadow: var(--sidebar-border-color) 0 0 0 1px;
+  }
+
+  &:hover {
+    background-color: var(--theme-toggle-hover-bg);
+  }
+
+}
+
+
+
