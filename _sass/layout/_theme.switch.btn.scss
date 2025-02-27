@@ -25,6 +25,16 @@ $btn-size: 1.75rem;
   &:hover {
     background-color: var(--theme-toggle-hover-bg);
   }
+  //
+  &::before {
+    content: '☀️' ;
+    font-size: 1.2rem;
+    position: absolute;
+  }
+
+  [data-theme]:not([data-theme="dark"])  &::before {
+    content: '🌙';
+  }
 }
 
 
