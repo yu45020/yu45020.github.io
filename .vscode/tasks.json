@@ -2,13 +2,20 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Run Jekyll Server",
+      "label": "Start Jekyll Server Windows",
       "type": "shell",
-      "command": "./tools/run.sh",
+      "command": "bundle exec jekyll serve   --livereload",
       "group": {
         "kind": "build",
         "isDefault": true
       },
+      "detail": "Starts the Jekyll server with live reload."
+    },
+    {
+      "label": "Run Jekyll Server",
+      "type": "shell",
+      "command": "./tools/run.sh",
+      "group": "build",
       "problemMatcher": [],
       "detail": "Runs the Jekyll server with live reload."
     },
@@ -17,7 +24,8 @@
       "type": "shell",
       "command": "./tools/test.sh",
       "group": {
-        "kind": "build"
+        "kind": "build",
+        "isDefault": true
       },
       "problemMatcher": [],
       "detail": "Build the Jekyll site for production."
