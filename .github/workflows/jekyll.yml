@@ -23,15 +23,22 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4
-      - name: Build Docker image
-        run: docker build --target=ci --tag=jekyll-image .
-      - name: Build site with Jekyll inside Docker container
-        run: |
-          BASE_URL="${{ steps.deployment.outputs.page_url }}"
-          docker run -v ./_site:/app/_site jekyll-image bundle exec jekyll build --baseurl "$BASE_URL"
+
+      # ref: https://github.com/ruby/setup-ruby#caching-bundle-install-automatically
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'  
+          # automatically run bundle install and cache the result 
+          bundler-cache: true
+
+      - name: Build site with Jekyll
+        run: bundle exec jekyll build
+
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v3
