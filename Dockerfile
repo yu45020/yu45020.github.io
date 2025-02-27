@@ -1,5 +1,9 @@
-FROM ruby:3.2.2-alpine AS dev
-RUN apk add build-base git bash
+FROM ruby:3.4.2-bookworm AS dev
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    git \
+    bash \
+    && rm -rf /var/lib/apt/lists/*
 WORKDIR /app
 ENV BUNDLE_PATH=/bundle \
     BUNDLE_BIN=/bundle/bin \
@@ -7,7 +11,7 @@ ENV BUNDLE_PATH=/bundle \
 ENV PATH="${BUNDLE_BIN}:${PATH}"
 
 FROM dev AS ci
-ENV JEKYLL_ENV=production
-COPY Gemfile jekyll-theme-chirpy.gemspec Gemfile.lock ./
-RUN bundle install
+ENV JEKYLL_ENV=development
+COPY Gemfile jekyll-theme-chirpy.gemspec   ./
+RUN bundle install && bundle update
 COPY . ./

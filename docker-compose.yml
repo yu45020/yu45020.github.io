@@ -7,10 +7,11 @@ services:
       target: dev
     stdin_open: true
     tty: true
-    command: bundle exec jekyll serve --host 0.0.0.0
+    command: bundle exec jekyll serve --host 0.0.0.0 --livereload
     volumes:
       - ".:/app"
       - bundle:/bundle
+      - .:/app:cached
     ports:
       - "4000:4000"
 volumes:

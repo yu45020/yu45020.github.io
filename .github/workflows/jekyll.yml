@@ -30,7 +30,7 @@ jobs:
         run: docker build --target=ci --tag=jekyll-image .
       - name: Build site with Jekyll inside Docker container
         run: |
-          docker run -v ./_site:/app/_site jekyll-image bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+          docker run -v ./_site:/app/_site jekyll-image bundle exec jekyll build --baseurl "/"
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v3
@@ -38,7 +38,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: https://yu45020.github.io/
     runs-on: ubuntu-latest
     needs: build
     steps:
