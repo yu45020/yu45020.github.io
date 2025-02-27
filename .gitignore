@@ -22,4 +22,4 @@ package-lock.json
 !.vscode/extensions.json
 !.vscode/tasks.json
 # Misc
-.history/*
+.history/
