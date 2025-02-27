@@ -5,28 +5,19 @@ layout: page
 
 <div id="tags" class="d-flex flex-wrap mx-xl-2">
   {% assign tags = '' | split: '' %}
-  {% for t in site.tags %}
+  {% for t in site.filtered_tags %}
     {% assign tags = tags | push: t[0] %}
   {% endfor %}
 
   {% assign sorted_tags = tags | sort_natural %}
 
   {% for t in sorted_tags %}
-    {% assign filtered_posts = '' | split: '' %}
-      {% for post in site.tags[t] %}
-        {% if post.hidden != true %}
-          {% assign filtered_posts = filtered_posts | push: post %}
-         {% endif %}
+    <div>
+      <a class="tag" href="{{ t | slugify | url_encode | prepend: '/tags/' | append: '/' | relative_url }}">
+        {{ t -}}
+        <span class="text-muted">{{ site.filtered_tags[t].size }}</span>
+      </a>
+    </div>
   {% endfor %}
-
-  {% if filtered_posts.size > 0 %}
-  <div>
-    <a class="tag" href="{{ t | slugify | url_encode | prepend: '/tags/' | append: '/' | relative_url }}">
-      {{ t -}}
-      <span class="text-muted">{{ filtered_posts.size }}</span>
-    </a>
-  </div>
-  {% endif %}
-  {% endfor %}
-
 </div>
+

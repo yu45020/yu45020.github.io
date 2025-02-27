@@ -10,6 +10,10 @@ script_includes:
   - comment
 ---
 
+{% if page.hidden %}
+  <meta name="robots" content="noindex">
+{% endif %}
+
 {% include lang.html %}
 
 {% include toc-status.html %}
