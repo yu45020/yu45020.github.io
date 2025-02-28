@@ -192,10 +192,7 @@ defaults:
     values:
       layout: page
       permalink: /:title/
-#  - scope:
-#      path: commons
-#    values:
-#      permalink: /cAommons/:path
+
 
 sass:
   style: compressed
