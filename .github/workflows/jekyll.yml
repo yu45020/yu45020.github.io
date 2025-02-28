@@ -24,7 +24,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:  
-          fetch-depth: 1
+          fetch-depth: 0
+          # assets/lib is a submodule, so we need to fetch it
+          submodules: true
           ref: main
 
       - name: Setup Pages

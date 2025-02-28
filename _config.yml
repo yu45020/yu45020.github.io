@@ -170,8 +170,7 @@ collections:
   tabs:
     output: true
     sort_by: order
-  hidden_posts:
-    output: false
+
 defaults:
   - scope: # specify default values for files in the post folder
       path: '' # An empty string here means all files in the project

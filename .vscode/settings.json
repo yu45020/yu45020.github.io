@@ -27,5 +27,8 @@
   "terminal.integrated.profiles.osx": {
     "zsh": { "path": "/bin/zsh", "args": ["-l", "-i"] }
   },
-  "github-actions.workflows.pinned.workflows": [".github/workflows/jekyll.yml"]
+  "github-actions.workflows.pinned.workflows": [".github/workflows/jekyll.yml"],
+  "[liquid]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
