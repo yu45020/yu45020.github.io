@@ -16,4 +16,4 @@ hidden: false
 # Hello World 
 
 ## Ref post 
-[Check out this hidden post](./2019-08-08-text-and-typography.md)
+[Check out this hidden post]({% post_url 2019-08-08-text-and-typography %})
