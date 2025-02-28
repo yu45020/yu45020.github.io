@@ -32,7 +32,6 @@ refactor: true
 <!-- Get normal posts on current page -->
 
 {% assign normal_size = paginator.posts | size | minus: pinned_size %}
-
 {% if normal_size > 0 %}
   {% if pinned_size > 0 %}
     {% assign normal_start = 0 %}
