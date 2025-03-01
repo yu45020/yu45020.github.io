@@ -31,5 +31,8 @@
   "[liquid]": {
     "editor.defaultFormatter": "sissel.shopify-liquid",
     "editor.formatOnSave": true
+  },
+  "[Log]": {
+    "editor.formatOnSave": false
   }
 }

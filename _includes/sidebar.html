@@ -39,15 +39,14 @@
         <!-- .nav-item -->
       {% endfor %}
     </ul>
-  </nav>
+  {% comment %} </nav> {% endcomment %}
 
     <div class="sidebar-bottom d-flex flex-wrap  align-items-center w-100">
       {% unless site.theme_mode %}
       <!--      <button type="button" class="btn btn-link nav-link" aria-label="Switch Mode" id="mode-toggle">-->
       <!--        <i class="fas fa-adjust"></i>-->
       <!--      </button>-->
-      <button type="button" class="btn btn-link nav-link" aria-label="Switch Mode" id="theme-toggle">
-      </button>
+      <button type="button" class="btn btn-link nav-link" aria-label="Switch Mode" id="theme-toggle"></button>
       {% if site.data.contact.size > 0 %}
       <span class="icon-border"></span>
       {% endif %}
