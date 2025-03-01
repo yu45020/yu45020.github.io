@@ -74,7 +74,7 @@ script_includes:
                     {{ site.data.authors[author].name }}
                   </a>
                 {%- else -%}
-                  <a>{{ author }}</a>
+                  <p>{{ author }}</p>
                 {%- endif %}
                 {% unless forloop.last %}
                   {{ '</em>, <em>' }}{% endunless %}
