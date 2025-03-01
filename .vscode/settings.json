@@ -29,6 +29,7 @@
   },
   "github-actions.workflows.pinned.workflows": [".github/workflows/jekyll.yml"],
   "[liquid]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "sissel.shopify-liquid",
+    "editor.formatOnSave": true
   }
 }
