@@ -1,7 +1,7 @@
-@use '../abstracts/variables' as v;
-@use '../abstracts/breakpoints' as bp;
-@use '../abstracts/mixins' as mx;
-@use '../abstracts/placeholders';
+@use "../abstracts/variables" as v;
+@use "../abstracts/breakpoints" as bp;
+@use "../abstracts/mixins" as mx;
+@use "../abstracts/placeholders";
 
 @for $i from 1 through 5 {
   h#{$i} {
@@ -40,7 +40,9 @@ a {
 
   text-decoration: none;
 }
-
+a img {
+  display: block; /* Prevents any extra spacing */
+}
 img {
   max-width: 100%;
   height: auto;
@@ -64,7 +66,7 @@ blockquote {
     margin-bottom: 0;
   }
 
-  &[class^='prompt-'] {
+  &[class^="prompt-"] {
     border-left: 0;
     position: relative;
     padding: 1rem 1rem 1rem 3rem;
@@ -83,10 +85,10 @@ blockquote {
     }
   }
 
-  @include mx.prompt('tip', '\f0eb', $fa-style: 'regular');
-  @include mx.prompt('info', '\f06a', $rotate: 180);
-  @include mx.prompt('warning', '\f06a');
-  @include mx.prompt('danger', '\f071');
+  @include mx.prompt("tip", "\f0eb", $fa-style: "regular");
+  @include mx.prompt("info", "\f06a", $rotate: 180);
+  @include mx.prompt("warning", "\f06a");
+  @include mx.prompt("danger", "\f071");
 }
 
 kbd {
@@ -176,7 +178,7 @@ main {
 
   @include bp.lte(bp.get(sm)) {
     .content {
-      > blockquote[class^='prompt-'] {
+      > blockquote[class^="prompt-"] {
         @include mx.ml-mr(-1rem);
 
         border-radius: 0;
