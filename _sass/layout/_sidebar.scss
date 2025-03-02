@@ -1,11 +1,12 @@
-@use '../abstracts/variables' as v;
-@use '../abstracts/mixins' as mx;
-@use '../abstracts/breakpoints' as bp;
-@use '../abstracts/placeholders';
+@use "../abstracts/variables" as v;
+@use "../abstracts/mixins" as mx;
+@use "../abstracts/breakpoints" as bp;
+@use "../abstracts/placeholders";
+@import url("https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap");
 
 $btn-border-width: 3px;
 $btn-mb: 0.5rem;
-$sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
+$sidebar-display: "sidebar-display"; /* the attribute for sidebar display */
 
 #sidebar {
   @include mx.pl-pr(0);
@@ -94,14 +95,13 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
       margin-bottom: 2.5rem;
       padding-left: 3.5rem;
     }
-
   }
 
   .site-title {
     @extend %clickable-transition;
     @extend %sidebar-link-hover;
 
-    font-family: inherit;
+    font-family: "Leckerli One";
     font-weight: 900;
     font-size: 1.5rem; // 1.75rem;
     line-height: 1.2;
@@ -121,6 +121,8 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    text-align: center;
+    font-weight: 700;
   }
 
   ul {
@@ -239,14 +241,14 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
       @include mx.ml-mr(calc((v.$sb-btn-gap - $btn-border-width) / 2));
 
       background-color: var(--sidebar-btn-color);
-      content: '';
+      content: "";
       width: $btn-border-width;
       height: $btn-border-width;
       border-radius: 50%;
       margin-bottom: $btn-mb;
 
-      margin-left: .5rem;
-      margin-right:.5rem;
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
       @include bp.xxxl {
         @include mx.ml-mr(calc((v.$sb-btn-gap-lg - $btn-border-width) / 2));
       }

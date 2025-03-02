@@ -16,7 +16,9 @@ timezone:
 
 title: Yu45020 # the main title
 
-tagline: 😵‍💫🤐🥶💊☠️👻 # it will display as the subtitle
+tagline: | # it will display as the subtitle
+  😵‍💫🤐🥶💊☠️👻
+    ¯\_(ツ)_/¯
 
 description: >- # used by seo meta and the atom feed
   yu45020 github page

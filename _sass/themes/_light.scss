@@ -33,19 +33,19 @@
   );
 
   /* Sidebar */
-  --site-title-color:rgb(68, 147, 248); // rgb(113, 113, 113);
-  --site-subtitle-color: rgb(50, 50, 50); // #717171;
+  --site-title-color: rgb(68, 147, 248); // rgb(113, 113, 113);
+  --site-subtitle-color: #da8a08; // #717171; rgb(50, 50, 50)
   --sidebar-bg: #f6f8fa;
   --sidebar-border-color: #efefef;
   --sidebar-muted-color: #545454;
   --sidebar-active-color: #1d1d1d;
   --sidebar-hover-bg: rgb(223, 233, 241, 0.64);
-  --theme-toggle-hover-bg: rgb(18,18,18);
-  --theme-toggle-boarder-bg:  rgb(18,18,18);
+  --theme-toggle-hover-bg: rgb(18, 18, 18);
+  --theme-toggle-boarder-bg: rgb(18, 18, 18);
   --sidebar-btn-bg: white;
   --sidebar-btn-color: #8e8e8e;
   --avatar-border-color: white;
-  --theme-toggle-icon: "🌙" ;
+  --theme-toggle-icon: "🌙";
 
   /* Topbar */
   --topbar-bg: rgb(255, 255, 255, 0.7);
@@ -113,7 +113,7 @@
   --code-header-icon-color: #c9c8c8;
   --clipboard-checked-color: #43c743;
 
-  [class^='prompt-'] {
+  [class^="prompt-"] {
     --link-underline-color: rgb(219, 216, 216);
   }
 

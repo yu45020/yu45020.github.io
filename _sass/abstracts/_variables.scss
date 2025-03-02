@@ -24,9 +24,10 @@ $code-dot-size: 0.75rem !default;
 $code-dot-gap: 0.5rem !default;
 $code-icon-width: 1.75rem !default;
 
-/* fonts */ 
+/* fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
- 
-$font-family-base:    'Source Sans Pro', 'Microsoft Yahei', 'Yu Gothic', sans-serif !default;
-$font-family-heading: Lato, 'Microsoft Yahei', 'Yu Gothic', sans-serif !default;
- 
+$font-family-base: "Inter", "Roboto", "Source Sans Pro", "Microsoft Yahei",
+  "Yu Gothic", sans-serif !default;
+$font-family-heading: Lato, "Microsoft Yahei", "Yu Gothic", sans-serif !default;
