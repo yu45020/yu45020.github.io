@@ -7,18 +7,18 @@ require 'uri'
 # fix preview 
 Jekyll::Hooks.register :pages, :post_render do |page|
   next unless  page.name =="index.html"
-  Jekyll.logger.warn "\n 📖 Processing page After Rendering: #{page.url}"
-  puts "=" * 50
+  Jekyll.logger.info "\n 📖 Processing page After Rendering: #{page.url}"
   # only correct the preview image
   replace_preview_image_link(page)
+  puts "=" * 50
 end
 
 # fix images in the body 
 Jekyll::Hooks.register :posts, :post_render do |post|
   next if post.output.nil? || post.output.strip.empty?  # Skip empty posts
-  Jekyll.logger.warn "\n 📖 Processing Post After Rendering: #{post.url}"
-  puts "=" * 50
+  Jekyll.logger.info "\n 📖 Processing Post After Rendering: #{post.url}"
   replace_internal_links(post)
+  puts "=" * 50
 end 
 
 
@@ -54,20 +54,19 @@ def replace_internal_links(post)
           source_file = File.join(source_folder, file_name)
        
         if linked_post 
-          Jekyll.logger.warn "✅ Found post: #{linked_post.path} -> #{linked_post.url}"  
+          Jekyll.logger.info "✅ Matched post: #{linked_post.path} -> #{linked_post.url}"  
           link['href'] = anchor ? "#{linked_post.url}##{anchor}" :  linked_post.url
         elsif File.exist?(source_file)  
-          Jekyll.logger.warn "📄 Matched file: #{source_file} -> #{target_file}"
+          Jekyll.logger.info "✅ Matched file: #{source_file} -> #{target_file}"
           link['href'] = anchor ? "#{target_file}##{anchor}" : target_file
           # replace all src under the <a> <...> </a>
           link.css('*[src]').each do |sub_element|
             old_src = sub_element['src']
             next if old_src.nil? || old_src.start_with?("http") # , "/", "assets"
-            Jekyll.logger.warn "🔄 Updating <#{sub_element.name}> src: #{old_src} -> #{target_file}"
             sub_element['src'] = target_file
           end
         else
-          Jekyll.logger.warn "❌ No matching post found for: #{base_href}, #{target_file} "  
+          # Jekyll.logger.info "❌ No matching post found for: #{base_href}, #{target_file} "  
         end
       end
     end

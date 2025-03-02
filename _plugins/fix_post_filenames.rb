@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 # move files without correct naming pattern in the _posts/ folder to /posts/YYYY-MM-DD-<folder-name>/
 # Jekyll process the files 
 
@@ -29,8 +31,6 @@ module Jekyll
 
         next if site.posts.docs.any? { |post| post.path == file_path }
 
-    
-        Jekyll.logger.warn "Virtual Rename:", "#{file_path}"
         post = Jekyll::Document.new(file_path,  site: site, collection: site.posts)
 
         post.read()
