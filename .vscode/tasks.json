@@ -22,6 +22,16 @@
       "detail": "build plugins."
     },
     {
+      "label": "Open Simple Browser for Jekyll",
+      "dependsOn": ["Open Simple Browser", "Move Simple Browser to Right"],
+      "dependsOrder": "sequence",
+      "group": {
+        "kind": "test",
+        "isDefault": false
+      },
+      "detail": "Opens VS Code's Simple Browser, then moves it to the right editor group."
+    },
+    {
       "label": "Test Site",
       "type": "shell",
       "command": [
@@ -90,6 +100,27 @@
         "kind": "build"
       },
       "detail": "Runs both the Jekyll server with live reload and build JS files in watch mode."
+    },
+    {
+      "label": "Open Simple Browser",
+      "command": "${input:openSimpleBrowser}"
+    },
+    {
+      "label": "Move Simple Browser to Right",
+      "command": "${input:moveSimpleBrowserRight}"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "openSimpleBrowser",
+      "type": "command",
+      "command": "simpleBrowser.show",
+      "args": ["http://localhost:4000"]
+    },
+    {
+      "id": "moveSimpleBrowserRight",
+      "type": "command",
+      "command": "workbench.action.moveEditorToRightGroup"
     }
   ]
 }
