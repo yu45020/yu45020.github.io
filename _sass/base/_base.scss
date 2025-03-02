@@ -1,33 +1,33 @@
-@use '../abstracts/variables' as v;
-@use '../abstracts/breakpoints' as bp;
-@use '../abstracts/mixins' as mx;
-@use '../abstracts/placeholders';
-@use '../themes/light';
-@use '../themes/dark';
+@use "../abstracts/variables" as v;
+@use "../abstracts/breakpoints" as bp;
+@use "../abstracts/mixins" as mx;
+@use "../abstracts/placeholders";
+@use "../themes/light";
+@use "../themes/dark";
 
 :root {
-  font-size: 16px;
+  font-size: 20px; //;16px;
 }
 
 html {
   @media (prefers-color-scheme: light) {
     &:not([data-mode]),
-    &[data-mode='light'] {
+    &[data-mode="light"] {
       @include light.styles;
     }
 
-    &[data-mode='dark'] {
+    &[data-mode="dark"] {
       @include dark.styles;
     }
   }
 
   @media (prefers-color-scheme: dark) {
     &:not([data-mode]),
-    &[data-mode='dark'] {
+    &[data-mode="dark"] {
       @include dark.styles;
     }
 
-    &[data-mode='light'] {
+    &[data-mode="light"] {
       @include light.styles;
     }
   }
@@ -99,7 +99,7 @@ main {
   &::before {
     @extend %rounded;
 
-    content: '';
+    content: "";
     width: 100%;
     height: 100%;
     position: absolute;
@@ -202,7 +202,7 @@ main {
       }
     }
 
-    input[type='checkbox'] {
+    input[type="checkbox"] {
       margin: 0 0.5rem 0.2rem -1.3rem;
       vertical-align: middle;
     }
@@ -257,7 +257,7 @@ main {
   background: var(--img-bg);
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     background: var(--shimmer-bg);
     height: 100%;

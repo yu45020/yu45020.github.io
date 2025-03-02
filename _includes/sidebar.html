@@ -12,8 +12,9 @@
       {%- endif -%}
     </a>
 
-    <a class="site-title d-block" href="{{ '/' | relative_url }}">{{ site.title }}</a>
-    <p class="site-subtitle">{{ site.tagline }}</p>
+    <a class="site-title d-block" href="{{ '/' | relative_url }}" id='processed-title'>  {{ site.title  }}</a>
+ 
+    <p class="site-subtitle">  {{ site.tagline }} </p>
   </header>
   <!-- .profile-wrapper -->
 
@@ -84,4 +85,4 @@
 </aside>
 <!-- #sidebar -->
 
-<script src="{{ '/assets/js/common/theme-toggle.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/common/misc.js' | relative_url }}"></script>

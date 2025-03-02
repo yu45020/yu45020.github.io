@@ -110,8 +110,13 @@ $sidebar-display: "sidebar-display"; /* the attribute for sidebar display */
     margin-bottom: 0.5rem;
     width: fit-content;
     color: var(--site-title-color);
+    .site-subtitle-numbers {
+      color: var(--site-subtitle-color);
+    }
   }
-
+  .site-title .digit {
+    font-size: 1.1rem;
+  }
   .site-subtitle {
     font-size: 95%;
     color: var(--site-subtitle-color);

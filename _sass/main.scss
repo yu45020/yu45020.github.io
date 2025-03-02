@@ -1,7 +1,6 @@
-@forward 'base';
-@forward 'components';
-@forward 'layout';
-@forward 'pages';
+@forward "base";
+@forward "components";
+@forward "layout";
+@forward "pages";
 /*overwrite default styles*/
-@use 'base/_basefont';
-@use 'layout/_theme.switch.btn';
+@use "layout/_theme.switch.btn";
