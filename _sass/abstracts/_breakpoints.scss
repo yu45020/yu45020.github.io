@@ -1,4 +1,4 @@
-@use 'sass:map';
+@use "sass:map";
 
 $-breakpoints: (
   // 1 column
@@ -22,7 +22,12 @@ $-breakpoints: (
     @content;
   }
 }
-
+/* Greater than the given width */
+@mixin gt($width) {
+  @media all and (min-width: calc(#{$width} + 1px)) {
+    @content;
+  }
+}
 /* Less than or equal to the given width */
 @mixin lte($width) {
   @media all and (max-width: $width) {
