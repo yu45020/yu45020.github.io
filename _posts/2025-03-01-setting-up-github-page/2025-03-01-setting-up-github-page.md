@@ -11,7 +11,7 @@ mermaid: false
 
 image:
   path: https://camo.githubusercontent.com/7deb9e4905ab1e73cec83fa80f3a5d0c7f613e6b522a9fdc41d5c79fad37eda8/68747470733a2f2f6368697270792d696d672e6e65746c6966792e6170702f636f6d6d6f6e732f646576696365732d6d6f636b75702e706e67
-  alt: Chripy Jekyll Theme
+  alt: Chirpy Jekyll Theme
 ---
 
 
@@ -27,51 +27,82 @@ image:
  
 
 
-##  TLDR
+## TL;DR
 
-* Create a new public repo using your username 
+* Create a new public repo using your username.
 
-
-* Download a Jekyll theme 
+* Download a Jekyll theme:
   * [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/), [minimal-light](https://xiao-chenguang.github.io/minimal-light/), [Chirpy](https://chirpy.cotes.page/)
-  * [GitHub Pages supported ](https://pages.github.com/themes/)
-  * [and more ...](https://jekyllrb.com/docs/themes/)
+  * [GitHub Pages supported](https://pages.github.com/themes/)
+  * [and more...](https://jekyllrb.com/docs/themes/)
 
-* Configure the build process
+* Configure the build process:
+  * Go to the repo's `Settings` --> `Pages` on the left panel.
+  * Under the `Build and deployment` section, choose `GitHub Actions`.
+  * Go to the `Actions` tab and set up a new workflow.
+  * Copy my [version](https://github.com/yu45020/yu45020.github.io/blob/main/.github/workflows/build-deploy.yml) to your repo folder `.github/build-deploy.yml`.
+  * A new action is available to run, which then builds and deploys the site.
 
-  * go to the repo's `Settings` --> `Pages` on the left panel, 
-  * under the `Build and deployment` section, choose `GitHub Actions`. 
-  * go to `Actions` tab and set up a new workflow
-  * copy my [version](https://github.com/yu45020/yu45020.github.io/blob/main/.github/workflows/build-deploy.yml) to your repo folder `.github/build-deploy.yml` 
-  * a new action is available to run, which then builds and deploys the site 
+* Put all markdown documents under the `_posts` folder with the file name pattern `YYYY-MM-DD-title.md`.
 
-* Put all markdown documents under the `_posts` folder with the file name pattern `YYYY-MM-DD-title.md`
+* When you push commits to the main branch, GitHub automatically rebuilds the site.
 
-* When you push commits to the main branch, GitHub then automatically rebuilds the site. 
+* If you want to run the site locally:
+  * Install `Ruby`, `Bundler`, `Jekyll` [(prerequisites)](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll#prerequisites), or use the docker [method](https://dev.to/cuongnp/setting-up-a-local-development-environment-for-jekyll-with-docker-d8k).
+  * Run `bundle install` and `bundle exec jekyll serve --livereload`.
+  * The site is available at `http://127.0.0.1:4000/`.
 
-* If you want to run the site localy
-  * Install `Ruby`, `Bundler`, `Jekyll` [(prerequisites)](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll#prerequisites)
-  * or the docker [way](https://dev.to/cuongnp/setting-up-a-local-development-environment-for-jekyll-with-docker-d8k)
+## About this theme
 
-## About this theme 
+This GitHub page uses the [Chirpy](https://chirpy.cotes.page/) theme. Here is a sample [document](https://chirpy.cotes.page/posts/text-and-typography/).
 
-This GitHub page uses the [Chirpy](https://chirpy.cotes.page/) theme. The codes are well-written. I make the following changes 
+The code is well-written. I made the following changes:
 
-* When markdown documents  are organized in subfolders in `_posts`,  files in the same folder will be copied to the same folder in the site. 
-  * for example: everything in  `_posts/2025-01-01-awesome-post/` is moved to `_site/posts/2025-01-01-awesome-post`
+* Images and related files for a document are organized into the same subfolder under `_posts/`, and they are moved to `_site/posts/` with the correct internal URL.
+  * For example: everything in `_posts/2025-01-01-awesome-post/` is moved to `_site/posts/2025-01-01-awesome-post`.
 
-* add an interanl url resolver so that images and documents can be directly referred by filename.
-  * for example,  `2025-01-01-awesome-post2.md`,  can be cited as `[doc](2025-01-01-awesome-post)` as long as `2025-01-01-awesome-post.md` is in `_posts/`
- 
-* markdown documents are not required to following the naming pattern
-  * Jekyll requires all posts in the `_posts/` following the naming pattern `YYYY-MM-DD-title.md`. Otherwises, the post will not be processed. 
-  * This new feature frees the naming pattern. 
+* Added an internal URL resolver so that local images and documents can be directly referred to by filename.
+  * For example, to refer to this [document](2025-03-01-setting-up-github-page#tldr):
+    ```md
+    [document](2025-03-01-setting-up-github-page#tldr)
+    ```
+  * In the `Chirpy` theme, an easy solution still requires a liquid function:
+    ```md
+    [document]({% post_url 2025-03-01-setting-up-github-page %}#tldr)
+    ```
 
-* some style changes
-  * make the base font size from 16px to 20px and change font-family to "Inter" and "Roboto"
-  * change the black/light theme-toggle  
-  * make the side panel narrower   
-  * adjust title font size separetely for words and digits 
-  * can display author names even though they are not included in the `origin/authors.yml`
-  * no break line behind an image when using `<a> <img> </img> <a>`
-  * add option `no-wrap="true"` in `<img ... no-warp="true">` to avoid poping up an image on click
+* Markdown documents are not required to follow the naming pattern.
+  * Documents without the naming pattern `YYYY-MM-DD-title.md` are processed and have the URL pattern `/posts/YYYY-MM-DD-{folder}/filebasename`.
+
+* Some style changes:
+  * Change the base font size from 16px to 20px and change the font-family to "Inter" and "Roboto".
+  * Change the black/light theme toggle.
+  * Make the side panel narrower.
+  * Adjust title font size separately for words and digits.
+  * Display author names even if they are not included in the `origin/authors.yml`.
+  * No break line behind an image when using `<a> <img> </img> <a>`.
+  * Add the option `no-wrap="true"` in `<img ... no-wrap="true">` to avoid popping up an image on click.
+
+## How to use this theme
+
+Assume you use this [repo](https://github.com/yu45020/yu45020.github.io) and VS Code.
+
+### Configuration
+
+Configure the `_config.yml` and replace the avatar & favicon images in `assets/img`. Favicon images can be created by [https://favicon.io/](https://favicon.io/). All other files are generated by [https://realfavicongenerator.net/](https://realfavicongenerator.net/).
+
+Install extensions [Task Explorer](https://marketplace.visualstudio.com/items?itemName=spmeesseman.vscode-taskexplorer) and [GitHub Actions](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-github-actions).
+
+Under the Task Explorer tab, you can find a list of pre-defined tasks under the vscode section. The tasks are defined in `.vscode/tasks.json`. Most tasks come from the `Chirpy` theme. I added the following:
+  * `Start Jekyll Server Windows`: start the Jekyll server.
+  * `Open Simple Browser for Jekyll`: start the built-in browser, connect to `localhost:4000`, and move to the right panel. You can write the document while viewing the content side by side.
+
+Under the GitHub Actions tab, you can see `Build and Deploy Jekyll Site`. It is defined in `.github/workflows/build-deploy.yml`.
+  * Trigger the action when a commit is pushed to the main branch.
+  * Build the site, test the internal URL, and deploy.
+
+### Writing
+
+Organize your documents in `_posts/`. You may use any file name or follow the naming pattern. Files can be standalone or in a separate subfolder. It's easier to organize related images and files under the same subfolder as the document.
+
+A template is available in `_draft/post_template.md`.
