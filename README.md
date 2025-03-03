@@ -35,14 +35,15 @@ If you are interested this theme, you may check out the ready-to-use [chirpy-sta
     `/posts/YYYY-MM-DD-{folder}/filebasename`.
 
 ### 🎨 Style Customizations
-- **Typography Adjustments:**
+
+- Typography Adjustments:
   - Base font size increased from 16px → 20px.
   - Changed font family to `Inter` and `Roboto`.
-- **UI Improvements:**
+- UI Improvements:
   - Adjusted title font sizes separately for words and digits.
   - Made the side panel narrower.
   - Modified dark/light mode toggle.
-- **Content Display Enhancements:**
+- Content Display Enhancements:
   - Author names are always displayed, even if not included in `origin/authors.yml`.
   - Prevents unwanted line breaks after images when using:
     ```html
