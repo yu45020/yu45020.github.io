@@ -67,9 +67,11 @@ The code is well-written. I made the following changes:
     [document](2025-03-01-setting-up-github-page#tldr)
     ```
   * In the `Chirpy` theme, an easy solution still requires a liquid function:
+    {% raw %}
     ```md
     [document]({% post_url 2025-03-01-setting-up-github-page %}#tldr)
     ```
+    {% endraw %}
 
 * Markdown documents are not required to follow the naming pattern.
   * Documents without the naming pattern `YYYY-MM-DD-title.md` are processed and have the URL pattern `/posts/YYYY-MM-DD-{folder}/filebasename`.
