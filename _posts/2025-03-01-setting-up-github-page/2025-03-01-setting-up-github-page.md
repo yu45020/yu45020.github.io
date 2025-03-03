@@ -17,7 +17,7 @@ image:
 
  
 
-<a href="https://github.com/yu45020/jekyll-theme-chirpy/fork" target="_blank" rel="noopener noreferrer">
+<a href="https://github.com/yu45020/yu45020.github.io/fork" target="_blank" rel="noopener noreferrer">
   <img loading="lazy" width="149" height="149" 
     src="https://github.blog/wp-content/uploads/2008/12/forkme_right_darkblue_121621.png?resize=149%2C149" 
     style="position: absolute; top: 0; right: 0; border: 0;" 
@@ -39,11 +39,20 @@ image:
 * Configure the build process:
   * Go to the repo's `Settings` --> `Pages` on the left panel.
   * Under the `Build and deployment` section, choose `GitHub Actions`.
+    * github's default action flow (`Deploy from a branch`) only supports a limited number of themes and only supports `Jekyll` 3.10.0. Some themes may require `Jekyll` > 4.0
+  
+  ![img](github-action.png)
+
   * Go to the `Actions` tab and set up a new workflow.
   * Copy my [version](https://github.com/yu45020/yu45020.github.io/blob/main/.github/workflows/build-deploy.yml) to your repo folder `.github/build-deploy.yml`.
-  * A new action is available to run, which then builds and deploys the site.
+  * `Run workflow` is available to build and deploy the site manually.
+  
+  ![img](github-action-run.png)
+
 
 * Put all markdown documents under the `_posts` folder with the file name pattern `YYYY-MM-DD-title.md`.
+  * This theme enables you write a markdown document as usual. Related files are automatically relocated with correct url. 
+  * If you use other themes, you may need to check their documentation. You may need to put files in the `assets/` folder or configure the `_config.yml` to include those files into the website build process.
 
 * When you push commits to the main branch, GitHub automatically rebuilds the site.
 
@@ -64,15 +73,21 @@ Configure the `_config.yml` and replace the avatar & favicon images in `assets/i
 Install extensions [Task Explorer](https://marketplace.visualstudio.com/items?itemName=spmeesseman.vscode-taskexplorer) and [GitHub Actions](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-github-actions).
 
 Under the Task Explorer tab, you can find a list of pre-defined tasks under the vscode section. The tasks are defined in `.vscode/tasks.json`. Most tasks come from the `Chirpy` theme. I added the following:
+
+  ![img](vscode-tasks.png){:width='300px'}
+  
   * `Start Jekyll Server Windows`: start the Jekyll server.
   * `Open Simple Browser for Jekyll`: start the built-in browser, connect to `localhost:4000`, and move to the right panel. You can write the document while viewing the content side by side.
 
 Under the GitHub Actions tab, you can see `Build and Deploy Jekyll Site`. It is defined in `.github/workflows/build-deploy.yml`.
-  * Trigger the action when a commit is pushed to the main branch.
-  * Build the site, test the internal URL, and deploy.
+
+  ![img](github-action-manual-build.png){:width='300px'} 
+
+  * Trigger the action manually or when a commit is pushed to the main branch.
+  * The action builds the site, tests the internal URL, and deploys in GitHub.
 
 ### Writing
 
-Organize your documents in `_posts/`. You may use any file name or follow the naming pattern. Files can be standalone or in a separate subfolder. It's easier to organize related images and files under the same subfolder as the document.
+Organize your markdown documents in `_posts/`. You may use any file name or follow the naming pattern. Files can be standalone or in a separate subfolder. It's easier to organize related images and files under the same subfolder as the document.
 
 A template is available in [`_draft/post_template.md`](https://raw.githubusercontent.com/yu45020/yu45020.github.io/refs/heads/main/_draft/post_template.md).
