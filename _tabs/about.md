@@ -2,6 +2,7 @@
 # the default layout is 'page'
 icon: fas fa-info-circle
 order: 10
+title: ""
 ---
 
 # My GitHub Page
@@ -24,7 +25,7 @@ If you are interested this theme, you may check out the ready-to-use [chirpy-sta
 
 ### 🔗 Enhanced URL Handling
 - Added an internal URL resolver, allowing local images and documents to be referenced directly by filename.
-  - Example: To reference this [document](2025-03-01-setting-up-github-page#tldr):
+  - Example: To reference an internal [tutorial](2025-03-01-setting-up-github-page#tldr):
     ```md
     [document](2025-03-01-setting-up-github-page#tldr)
     ```

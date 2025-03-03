@@ -14,19 +14,31 @@ Jekyll::Hooks.register :pages, :post_render do |page|
 end
 
 # fix images in the body 
-Jekyll::Hooks.register :posts, :post_render do |post|
+Jekyll::Hooks.register :posts, :post_render do |post| 
+
   next if post.output.nil? || post.output.strip.empty?  # Skip empty posts
   Jekyll.logger.info "\n 📖 Processing Post After Rendering: #{post.url}"
   replace_internal_links(post)
   puts "=" * 50
 end 
 
+Jekyll::Hooks.register :tabs, :post_render do |tab|
+  # Jekyll.logger.info "tab attributes: #{tab.to_liquid.keys}"
+  # Jekyll.logger.info "tab attributes: #{tab.to_liquid.keys}"
+  # Jekyll.logger.info "tab: #{tab.url}"
+
+  next unless tab.url == "/about/"
+  Jekyll.logger.info "\n 📖 Processing About Page After Rendering"
+  replace_internal_links(tab)
+  puts "=" * 50
+end
 
 
 def replace_internal_links(post)
     html = post.output 
     site = post.site 
     post_folder_in_site = post.url
+    puts post_folder_in_site
     source_folder = File.dirname(post.path)
     doc = Nokogiri::HTML::parse(html)
 
