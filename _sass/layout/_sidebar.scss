@@ -39,9 +39,9 @@ $sidebar-display: "sidebar-display"; /* the attribute for sidebar display */
     }
   }
 
-  @include bp.xxxl {
-    width: v.$sidebar-width-large;
-  }
+  // @include bp.xxxl {
+  //   width: v.$sidebar-width-large;
+  // }
 
   %sidebar-link-hover {
     &:hover {
@@ -78,22 +78,22 @@ $sidebar-display: "sidebar-display"; /* the attribute for sidebar display */
   .profile-wrapper {
     //@include mx.mt-mb(2.5rem);
     margin-top: 2.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     @extend %clickable-transition;
 
-    padding-left: 2.5rem;
+    padding-left: 2rem;
     padding-right: 1.25rem;
     width: 100%;
 
-    @include bp.lg {
-      margin-top: 3rem;
-    }
+    // @include bp.lg {
+    //   margin-top: 3rem;
+    // }
 
-    @include bp.xxxl {
-      margin-top: 3.5rem;
-      // margin-bottom: 2.5rem;
-      padding-left: 3.5rem;
-    }
+    // @include bp.xxxl {
+    //   margin-top: 3.5rem;
+    //   // margin-bottom: 2.5rem;
+    //   padding-left: 3.5rem;
+    // }
   }
 
   .site-title {
@@ -130,7 +130,7 @@ $sidebar-display: "sidebar-display"; /* the attribute for sidebar display */
   }
 
   ul {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 
     li.nav-item {
       opacity: 0.9;
@@ -184,7 +184,7 @@ $sidebar-display: "sidebar-display"; /* the attribute for sidebar display */
   }
 
   .sidebar-bottom {
-    padding-left: 2rem;
+    padding-left: 0.45rem;
     padding-right: 1rem;
     margin-bottom: 1.5rem;
     margin-left: 1rem;
