@@ -52,42 +52,10 @@ image:
   * Run `bundle install` and `bundle exec jekyll serve --livereload`.
   * The site is available at `http://127.0.0.1:4000/`.
 
-## About this theme
-
-This GitHub page uses the [Chirpy](https://chirpy.cotes.page/) theme. Here is a sample [document](https://chirpy.cotes.page/posts/text-and-typography/).
-
-The code is well-written. I made the following changes:
-
-* Images and related files for a document are organized into the same subfolder under `_posts/`, and they are moved to `_site/posts/` with the correct internal URL.
-  * For example: everything in `_posts/2025-01-01-awesome-post/` is moved to `_site/posts/2025-01-01-awesome-post`.
-
-* Added an internal URL resolver so that local images and documents can be directly referred to by filename.
-  * For example, to refer to this [document](2025-03-01-setting-up-github-page#tldr):
-    ```md
-    [document](2025-03-01-setting-up-github-page#tldr)
-    ```
-  * In the `Chirpy` theme, an easy solution still requires a liquid function:
-    {% raw %}
-    ```md
-    [document]({% post_url 2025-03-01-setting-up-github-page %}#tldr)
-    ```
-    {% endraw %}
-
-* Markdown documents are not required to follow the naming pattern.
-  * Documents without the naming pattern `YYYY-MM-DD-title.md` are processed and have the URL pattern `/posts/YYYY-MM-DD-{folder}/filebasename`.
-
-* Some style changes:
-  * Change the base font size from 16px to 20px and change the font-family to "Inter" and "Roboto".
-  * Change the black/light theme toggle.
-  * Make the side panel narrower.
-  * Adjust title font size separately for words and digits.
-  * Display author names even if they are not included in the `origin/authors.yml`.
-  * No break line behind an image when using `<a> <img> </img> <a>`.
-  * Add the option `no-wrap="true"` in `<img ... no-wrap="true">` to avoid popping up an image on click.
 
 ## How to use this theme
 
-Assume you use this [repo](https://github.com/yu45020/yu45020.github.io) and VS Code.
+Assume you use the [Chirpy](https://chirpy.cotes.page/) theme or this [repo](https://github.com/yu45020/yu45020.github.io) with VS Code.
 
 ### Configuration
 
@@ -108,3 +76,49 @@ Under the GitHub Actions tab, you can see `Build and Deploy Jekyll Site`. It is 
 Organize your documents in `_posts/`. You may use any file name or follow the naming pattern. Files can be standalone or in a separate subfolder. It's easier to organize related images and files under the same subfolder as the document.
 
 A template is available in `_draft/post_template.md`.
+
+
+## About this theme
+
+This GitHub page uses the [Chirpy](https://chirpy.cotes.page/) theme. Here is a sample [document](https://chirpy.cotes.page/posts/text-and-typography/).
+
+The code is well-written. I made the following changes:
+
+### 📂 Improved File Organization
+- Images and related files for a document are now stored in the same subfolder under `_posts/` and moved to `_site/posts/` with the correct internal URL.
+  - Example: Everything inside `_posts/2025-01-01-awesome-post/` is moved to `_site/posts/2025-01-01-awesome-post`.
+
+### 🔗 Enhanced URL Handling
+- Added an internal URL resolver, allowing local images and documents to be referenced directly by filename.
+  - Example: To reference this [document](2025-03-01-setting-up-github-page#tldr):
+    ```md
+    [document](2025-03-01-setting-up-github-page#tldr)
+    ```
+  - In the original `Chirpy` theme, a Liquid function was required:
+    {% raw %}
+    ```md
+    [document]({% post_url 2025-03-01-setting-up-github-page %}#tldr)
+    ```
+    {% endraw %}
+
+### 📜 Flexible Markdown Naming
+- Markdown documents are no longer required to follow the `YYYY-MM-DD-title.md` naming pattern.
+  - Documents without this pattern are still processed, following the URL structure:  
+    `/posts/YYYY-MM-DD-{folder}/filebasename`.
+
+### 🎨 Style Customizations
+- **Typography Adjustments:**
+  - Base font size increased from 16px → 20px.
+  - Changed font family to `Inter` and `Roboto`.
+- **UI Improvements:**
+  - Adjusted title font sizes separately for words and digits.
+  - Made the side panel narrower.
+  - Modified dark/light mode toggle.
+- **Content Display Enhancements:**
+  - Author names are always displayed, even if not included in `origin/authors.yml`.
+  - Prevents unwanted line breaks after images when using:
+    ```html
+    <a> <img> </img> <a>
+    ```
+  - Introduced the attribute `no-wrap="true"` in `<img ... no-wrap="true">` to disable image pop-ups on click.
+
