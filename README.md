@@ -23,11 +23,9 @@ If you are interested this theme, you may check out the ready-to-use [chirpy-sta
     [document](2025-03-01-setting-up-github-page#tldr)
     ```
   - In the original `Chirpy` theme, a Liquid function was required:
-    {% raw %}
     ```md
     [document]({% post_url 2025-03-01-setting-up-github-page %}#tldr)
     ```
-    {% endraw %}
 
 ### 📜 Flexible Markdown Naming
 - Markdown documents are no longer required to follow the `YYYY-MM-DD-title.md` naming pattern.
